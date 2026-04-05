@@ -1,65 +1,61 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getLandingBackgroundImage } from "./_lib/mock-data";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main
+      className="relative min-h-screen overflow-hidden bg-stone-900 text-white"
+      style={{
+        backgroundImage: `linear-gradient(180deg, rgba(33, 17, 25, 0.35), rgba(33, 17, 25, 0.72)), url('${getLandingBackgroundImage()}')`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
+      <Link
+        href="/login"
+        className="group flex min-h-screen flex-col items-center justify-between px-5 py-8 sm:px-8"
+      >
+        <div className="flex w-full justify-between text-xs font-semibold tracking-[0.24em] text-rose-100 sm:text-sm">
+          <span>SPRING LEAGUE</span>
+          <span>2026 SEASON</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="relative flex w-full max-w-5xl flex-1 flex-col items-center justify-center">
+          <div className="absolute inset-x-0 top-[16%] mx-auto h-40 w-40 rounded-full bg-white/15 blur-3xl sm:h-56 sm:w-56" />
+          <div className="absolute bottom-[18%] left-[8%] h-24 w-24 rounded-full bg-rose-300/20 blur-2xl" />
+          <div className="absolute right-[10%] top-[24%] h-28 w-28 rounded-full bg-pink-100/20 blur-2xl" />
+
+          <div className="relative flex w-full flex-col items-center rounded-[2rem] border border-white/10 bg-black/20 px-5 py-10 text-center backdrop-blur-sm">
+            <div className="mb-6 flex items-end gap-3">
+              <span className="text-4xl sm:text-5xl">🌸</span>
+              <span className="text-5xl sm:text-6xl">🌸</span>
+              <span className="text-4xl sm:text-5xl">🌸</span>
+            </div>
+
+            <p className="text-sm font-semibold tracking-[0.36em] text-rose-100 sm:text-base">
+              시험기간 집중력 파괴 프로젝트
+            </p>
+            <h1 className="mt-4 text-[3.2rem] font-black tracking-[-0.08em] text-white sm:text-[5.4rem]">
+              벚꽃살리기
+            </h1>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-white/78 sm:max-w-xl sm:text-lg sm:leading-8">
+              우리 학교 벚꽃은 살리고, 남의 학교는 흔들고, 랭킹은 끝까지
+              확인하게 되는 봄 시즌 대항전.
+            </p>
+            <p className="mt-4 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white/70">
+              배경 이미지 슬롯: <span>{`/public${getLandingBackgroundImage()}`}</span>
+            </p>
+
+            <div className="mt-10 rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur transition group-hover:scale-[1.02] sm:text-base">
+              화면 아무 곳이나 눌러 입장하기
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <div className="w-full text-center text-xs text-white/70 sm:text-sm">
+          친구랑 같이 들어와서 우리 학교 벚꽃 수명 연장하기
+        </div>
+      </Link>
+    </main>
   );
 }
